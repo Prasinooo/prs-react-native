@@ -16,7 +16,8 @@ export default class Main extends React.Component {
     super(props);
 
     // 为了在回调中使用 `this`，这个绑定是必不可少的
-    this.goUser = this.goUser.bind(this);
+    // this.goUser = this.goUser.bind(this);
+    // 替代方法是使用 class fields 语法，或在回调中使用箭头函数
   }
 
   goUser() {
@@ -28,7 +29,7 @@ export default class Main extends React.Component {
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>Main Screen</Text>
         <Button
-          onPress={this.goUser}
+          onPress={(e)=>{this.goUser(e)}}
           title="Mine"
           color="#841584"
           accessibilityLabel="Learn more about this purple button"

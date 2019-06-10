@@ -15,7 +15,8 @@ export default class User extends React.Component {
     super(props);
 
     // 为了在回调中使用 `this`，这个绑定是必不可少的
-    this.goEdit = this.goEdit.bind(this);
+    // this.goEdit = this.goEdit.bind(this);
+    // 替代方法是使用 class fields 语法，或在回调中使用箭头函数
   }
 
   goEdit() {
@@ -27,7 +28,7 @@ export default class User extends React.Component {
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <Text>User page</Text>
         <Button
-          onPress={this.goEdit}
+          onPress={(e)=>{this.goEdit(e)}}
           title="Edit"
           color="#841584"
           accessibilityLabel="Learn more about this purple button"
